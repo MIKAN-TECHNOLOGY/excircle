@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160306133226) do
+ActiveRecord::Schema.define(version: 20160307044034) do
+
+  create_table "circles", force: :cascade do |t|
+    t.string   "name",         limit: 255
+    t.string   "appeal",       limit: 255
+    t.string   "detail",       limit: 255
+    t.string   "campus",       limit: 255
+    t.binary   "official",     limit: 65535
+    t.binary   "intercollege", limit: 65535
+    t.integer  "tag_id",       limit: 4
+    t.integer  "user_id",      limit: 4
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
 
   create_table "univs", force: :cascade do |t|
     t.string   "name",       limit: 255
