@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160307044034) do
+ActiveRecord::Schema.define(version: 20160307052406) do
 
   create_table "circles", force: :cascade do |t|
     t.string   "name",         limit: 255
@@ -24,6 +24,16 @@ ActiveRecord::Schema.define(version: 20160307044034) do
     t.integer  "user_id",      limit: 4
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.datetime "date"
+    t.text     "place",      limit: 65535
+    t.integer  "cost",       limit: 4
+    t.text     "content",    limit: 65535
+    t.integer  "circle_id",  limit: 4
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "univs", force: :cascade do |t|
