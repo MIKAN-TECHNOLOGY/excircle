@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20160307052406) do
+=======
+ActiveRecord::Schema.define(version: 20160307052248) do
+>>>>>>> 79f86f3190fc1b710bb7c5b2e57e9f6113a8b8ca
 
   create_table "circles", force: :cascade do |t|
     t.string   "name",         limit: 255
@@ -26,6 +30,7 @@ ActiveRecord::Schema.define(version: 20160307052406) do
     t.datetime "updated_at",                 null: false
   end
 
+<<<<<<< HEAD
   create_table "events", force: :cascade do |t|
     t.datetime "date"
     t.text     "place",      limit: 65535
@@ -34,6 +39,12 @@ ActiveRecord::Schema.define(version: 20160307052406) do
     t.integer  "circle_id",  limit: 4
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+=======
+  create_table "tags", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+>>>>>>> 79f86f3190fc1b710bb7c5b2e57e9f6113a8b8ca
   end
 
   create_table "univs", force: :cascade do |t|
