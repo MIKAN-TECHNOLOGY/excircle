@@ -1,0 +1,2 @@
+class UnivsController < ApplicationController
+end
