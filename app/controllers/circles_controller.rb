@@ -3,7 +3,6 @@ class CirclesController < ApplicationController
   end
 
   def search
-    ＠circles = Circle.all
-
+    @circles = Circle.where('name LIKE(?)', "%#{params[:search]}%")
   end
 end
