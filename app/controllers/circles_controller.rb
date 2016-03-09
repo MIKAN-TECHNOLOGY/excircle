@@ -3,5 +3,7 @@ class CirclesController < ApplicationController
   end
 
   def search
+    ＠circles = Circle.all
+
   end
 end
