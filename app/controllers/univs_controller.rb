@@ -1,4 +1,10 @@
 class UnivsController < ApplicationController
-  def index
+  def show
+    @circles = 
+  end
+
+  private
+  def create_params
+
   end
 end
