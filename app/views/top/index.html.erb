@@ -100,7 +100,7 @@
                 </div>
                 <div class="row">
                     <% @univs.each do |univ| %>
-                        <a href="/univ/<%= univ.id %>">
+                        <a href="/univs/<%= univ.id %>">
                         <%= univ.name %>
                         </a>
                     <% end %>
@@ -112,7 +112,7 @@
                 </div>
                 <div class="row">
                     <% @tags.each do |tag| %>
-                        <a href="/univ/<%= tag.id %>">
+                        <a href="/tags/<%= tag.id %>">
                         <%= tag.name %>
                         </a>
 
