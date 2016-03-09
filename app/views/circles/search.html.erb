@@ -70,9 +70,15 @@
                 <p class="lead">サークル名検索</p>
                 <div class="list-group">
                     <a href="#" class="list-group-item"><%= params[:search] %></a>
+<<<<<<< HEAD
                 <% @Circles.each do |circle| %>
                     <a href="#" class="list-group-item"><%circle.name%></a>
                     <%end%>
+=======
+                        <% @circles.each do |circle| %>
+                            <a href="#" class="list-group-item"><%circle.name%></a>
+                        <% end %>
+>>>>>>> cf4fc78d0763a8ed231e68ae079dd0ae6502f8c0
                     <a href="#" class="list-group-item">Category 3</a>
                 </div>
             </div>
