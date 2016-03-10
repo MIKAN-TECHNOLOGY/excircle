@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   end
   resources :tags
   root 'top#index'
+  get 'users/:id' => 'users#show'
 end
