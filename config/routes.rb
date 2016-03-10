@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  resources :users, only: [:show, :edit, :update]
   resources :univs
   resources :circles do
     collection do
@@ -8,5 +9,4 @@ Rails.application.routes.draw do
   end
   resources :tags
   root 'top#index'
-  get 'users/:id' => 'users#show'
 end

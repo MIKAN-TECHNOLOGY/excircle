@@ -43,9 +43,7 @@
             </div>
 
             <div class="col-md-9">
-
                 <div class="row carousel-holder">
-
                     <div class="col-md-12">
                         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                             <ol class="carousel-indicators">
@@ -72,48 +70,52 @@
                             </a>
                         </div>
                     </div>
-
                 </div>
 
                 <div class="row">
-
-
-                <% @circles.each do |circle| %>
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                        <div class="thumbnail">
-                             <img src="http://placehold.it/320x150" alt="">
-                             <div class="caption">
-                                <h4 class="pull-right"></h4>
-                                <h4><a href="#"><%= circle.name %></a>
-                                </h4>
-                                <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            </div>
-                            <div class="ratings">
-                                <p class="pull-right">12 reviews</p>
-                                <p>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star-empty"></span>
-                                </p>
+                    <div class="row">
+                        <h2 class="pull-left">
+                            サークル名検索
+                        </h2>
+                        <form method="GET" action="/circles/search">
+                            <input type="text" name="search" value="" class="form-control">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="submit">検索</button>
+                                </span>
+                        </form>
+                    </div>
+                    <% @circles.each do |circle| %>
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+                            <div class="thumbnail">
+                                 <img src="http://placehold.it/320x150" alt="">
+                                 <div class="caption">
+                                    <h4 class="pull-right"></h4>
+                                    <h4><a href="#"><%= circle.name %></a>
+                                    </h4>
+                                    <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                </div>
+                                <div class="ratings">
+                                    <p class="pull-right">12 reviews</p>
+                                    <p>
+                                        <span class="glyphicon glyphicon-star"></span>
+                                        <span class="glyphicon glyphicon-star"></span>
+                                        <span class="glyphicon glyphicon-star"></span>
+                                        <span class="glyphicon glyphicon-star"></span>
+                                        <span class="glyphicon glyphicon-star-empty"></span>
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                 <%end%>
+                    <%end%>
                     <div class="col-sm-4 col-lg-4 col-md-4">
                         <h4><a href="#">Like this template?</a>
                         </h4>
                         <p>If you like this template, then check out <a target="_blank" href="http://maxoffsky.com/code-blog/laravel-shop-tutorial-1-building-a-review-system/">this tutorial</a> on how to build a working review system for your online store!</p>
                         <a class="btn btn-primary" target="_blank" href="http://maxoffsky.com/code-blog/laravel-shop-tutorial-1-building-a-review-system/">View Tutorial</a>
                     </div>
-
                 </div>
-
             </div>
-
         </div>
-
     </div>
     <!-- /.container -->
 
