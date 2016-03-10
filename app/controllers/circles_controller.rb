@@ -1,5 +1,7 @@
 class CirclesController < ApplicationController
   def show
+    @circles = Circle.where(id: params[:id])
+    @events = Event.where(circle_id: @circles)
   end
 
   def search
