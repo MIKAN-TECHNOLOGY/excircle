@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20160310114641) do
-=======
 ActiveRecord::Schema.define(version: 20160310132042) do
->>>>>>> f15ea97b5a0780772370aaf6bc75181d27e6ae31
 
   create_table "circles", force: :cascade do |t|
     t.string   "name",         limit: 255
@@ -39,17 +35,6 @@ ActiveRecord::Schema.define(version: 20160310132042) do
     t.integer  "circle_id",  limit: 4
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
-  end
-
-  create_table "roles", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-  end
-
-  create_table "roles_users", id: false, force: :cascade do |t|
-    t.integer "user_id", limit: 4, null: false
-    t.integer "role_id", limit: 4, null: false
   end
 
   create_table "tags", force: :cascade do |t|
@@ -79,15 +64,11 @@ ActiveRecord::Schema.define(version: 20160310132042) do
     t.datetime "updated_at",                                        null: false
     t.string   "name",                   limit: 255
     t.integer  "univ_id",                limit: 4
-<<<<<<< HEAD
     t.string   "avatar_file_name",       limit: 255
     t.string   "avatar_content_type",    limit: 255
     t.integer  "avatar_file_size",       limit: 4
     t.datetime "avatar_updated_at"
-=======
-    t.string   "user",                   limit: 255
     t.binary   "admin",                  limit: 65535
->>>>>>> f15ea97b5a0780772370aaf6bc75181d27e6ae31
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
