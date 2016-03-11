@@ -31,15 +31,17 @@
 <div class="container">
 
     <div class="row">
-
+<!-- 左上の検索バー-->
         <div class="col-md-3">
-            <div class="row">
-                <p class="pull-left">サークル名検索</p>
+                <div class="row">
+                    <p class="lead">サークル名検索</p>
                     <form method="GET" action="/circles/search">
-                        <input type="text" name="search" value="" class="form-control">
+                    <div class="input-group">
+                        <input type="text" name="search" class="form-control">
                         <span class="input-group-btn">
                             <button class="btn btn-default" type="submit">検索</button>
                         </span>
+                    </div>
                     </form>
                 </div>
                 <p class="lead">大学名検索</p>
@@ -54,11 +56,6 @@
                         <a href="/tags/<%= tag.id %>"><%= tag.name %></a>
                     <% end %>
                 </div>
-
-
-
-
-
             </div>
 
             <div class="col-md-9">
