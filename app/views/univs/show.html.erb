@@ -32,14 +32,35 @@
 
         <div class="row">
 
-            <div class="col-md-3">
-                <p class="lead">大学名検索</p>
-                <div class="list-group">
-                    <a href="#" class="list-group-item"><%= params[:id] %></a>
-                        <a href="#" class="list-group-item"></a>
-                    <a href="#" class="list-group-item">Category 3</a>
+       <div class="col-md-3">
+            <div class="row">
+            <p class="lead">大学名検索結果</p>
+            <% @univ_id.each do |univ| %>
+            <p class="lead"> <%= univ.name %></p>
+            <% end %>
+                <p class="lead">サークル名検索</p>
+                <form method="GET" action="/circles/search">
+                <div class="input-group">
+                    <input type="text" name="search" class="form-control">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="submit">検索</button>
+                    </span>
                 </div>
+                </form>
             </div>
+            <p class="lead">大学名検索</p>
+            <div class="list-group">
+                <% @univs.each do |univ| %>
+                    <a href="/univs/<%= univ.id %>"><%= univ.name %></a>
+                <% end %>
+            </div>
+            <p class="lead">ジャンル検索</p>
+            <div class="list-group">
+                <% @tags.each do |tag| %>
+                    <a href="/tags/<%= tag.id %>"><%= tag.name %></a>
+                <% end %>
+            </div>
+        </div>
 
             <div class="col-md-9">
 
