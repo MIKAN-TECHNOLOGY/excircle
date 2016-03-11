@@ -28,9 +28,36 @@
 
 <body>
     <!-- Page Content -->
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
+<div class="container">
+<div class="row">
+<!-- 左上の検索バー-->
+        <div class="col-md-3">
+            <div class="row">
+                <p class="lead">サークル名検索</p>
+                <form method="GET" action="/circles/search">
+                <div class="input-group">
+                    <input type="text" name="search" class="form-control">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="submit">検索</button>
+                    </span>
+                </div>
+                </form>
+            </div>
+            <p class="lead">大学名検索</p>
+            <div class="list-group">
+                <% @univs.each do |univ| %>
+                    <a href="/univs/<%= univ.id %>"><%= univ.name %></a>
+                <% end %>
+            </div>
+            <p class="lead">ジャンル検索</p>
+            <div class="list-group">
+                <% @tags.each do |tag| %>
+                    <a href="/tags/<%= tag.id %>"><%= tag.name %></a>
+                <% end %>
+            </div>
+        </div>
+
+            <div class="col-md-9">
                 <div class="row carousel-holder">
                     <div class="col-md-12">
                         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -41,41 +68,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <h2 class="pull-left">
-                        サークル名検索
-                    </h2>
-                    <form method="GET" action="/circles/search">
-                        <input type="text" name="search" value="" class="form-control">
-                            <span class="input-group-btn">
-                                <button class="btn btn-default" type="submit">検索</button>
-                            </span>
-                    </form>
-                </div>
-                <div class="row">
-                    <h3 class="pull-left">
-                      大学検索
-                    </h3>
-                </div>
-                <div class="row">
-                    <% @univs.each do |univ| %>
-                        <a href="/univs/<%= univ.id %>">
-                        <%= univ.name %>
-                        </a>
-                    <% end %>
-                </div>
-                <div class="row">
-                    <h3 class="pull-left">
-                        ジャンル検索
-                    </h3>
-                </div>
-                <div class="row">
-                    <% @tags.each do |tag| %>
-                        <a href="/tags/<%= tag.id %>">
-                        <%= tag.name %>
-                        </a>
-                    <% end %>
                 </div>
                 <div class="row">
                     <h2 class="pull-left">
