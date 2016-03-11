@@ -73,18 +73,18 @@
                             <h3 class="page-header"><%= circle.name %>のイベント</h3>
                         </div>
                         <%= @events.each do |event| %>
-                        <% if circle.id == event.circle_id then %>
-                            <div class="col-sm-3 col-xs-6">
-                                <h4>イベント名：<%= event.name %></h4>
-                                <ul>
-                                    <li>日時：<%= event.date %></li>
-                                    <li>場所：<%= event.place %></li>
-                                    <li>費用：<%= event.cost %></li>
-                                    <li>内容：<%= event.content %></li>
-                                    <li>連絡先：<%= event.contact %></li>
-                                </ul>
-                            </div>
-                         <% end %>   
+                            <% if circle.id == event.circle_id then %>
+                                <div class="col-sm-3 col-xs-6">
+                                    <h4>イベント名：<%= event.name %></h4>
+                                    <ul>
+                                        <li>日時：<%= event.date %></li>
+                                        <li>場所：<%= event.place %></li>
+                                        <li>費用：<%= event.cost %></li>
+                                        <li>内容：<%= event.content %></li>
+                                        <li>連絡先：<%= event.contact %></li>
+                                    </ul>
+                                </div>
+                            <% end %>
                         <% end %>
                     </div>
                 <!-- /.row -->

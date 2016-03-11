@@ -1,4 +1,7 @@
 class CirclesController < ApplicationController
+
+  before_action :move_to_show, only: :edit
+
   def show
     @circles = Circle.where(id: params[:id])
     @events = Event.where(circle_id: @circles)
@@ -17,6 +20,11 @@ class CirclesController < ApplicationController
   end
 
   def edit
+  end
+
+  private
+  def move_to_show
+    redirect_to action: :show unless user_signed_in? && current_user.id == Circle.find(params[:id]).user_id
   end
 
 end
