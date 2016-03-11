@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def show
     @circles = Circle.where(user_id: current_user.id)
-    @events = Event.all
+    @events = Event.where(circle_id: @circles)
   end
 
   def edit
