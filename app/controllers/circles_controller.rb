@@ -22,6 +22,10 @@ class CirclesController < ApplicationController
   def edit
   end
 
+  def destroy
+    Circle.find(params[:id]).destroy
+  end
+
   private
   def move_to_show
     redirect_to action: :show unless user_signed_in? && current_user.id == Circle.find(params[:id]).user_id

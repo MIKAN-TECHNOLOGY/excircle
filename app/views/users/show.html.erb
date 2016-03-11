@@ -39,6 +39,7 @@
                 <h1 class="page-header"><%= current_user.univ.name %>、<%= current_user.name %>さんのマイページ</h1>
             </div>
             <a href="/users/<%= current_user.id %>/edit">ユーザー情報を変更する</a>
+            <a href="/users/<%= current_user.id %>" data-method="delete" data-confirm="本当に削除してよろしいですか？">ユーザー情報を削除する</a>
         </div>
         <!-- /.row -->
 
@@ -53,6 +54,7 @@
                     <h3>サークル名：<%= circle.name %></h3>
                     <h3>サークル情報</h3>
                     <a href="/circles/<%= circle.id %>/edit">サークル情報を変更する</a>
+                    <a href="/circles/<%= circle.id %>" data-method="delete" data-confirm="本当に削除してよろしいですか？">サークル情報を削除する</a>
                     <ul>
                         <li>アピール文</li>
                         <p><%= circle.appeal %></p>

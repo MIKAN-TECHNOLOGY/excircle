@@ -11,8 +11,13 @@ class UsersController < ApplicationController
     current_user.update(update_params)
   end
 
+  def destroy
+    current_user.circles.destroy_all
+    current_user.destroy
+  end
+
   private
   def update_params
-    params.require(:user).permit(:avatar)
+    params.require(:user).permit(:email, :password, :name, :univ_id, :avatar)
   end
 end
