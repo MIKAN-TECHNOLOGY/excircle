@@ -33,7 +33,7 @@ class CirclesController < ApplicationController
 
   private
   def update_params
-    params.require(:circle).permit(:name)
+    params.require(:circle).permit(:name,:n_member,:appeal,:detail,:campus,:official,:intercollege,:tag_id)
   end
 
   def move_to_show

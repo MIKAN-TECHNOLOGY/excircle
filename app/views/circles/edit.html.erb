@@ -37,6 +37,34 @@
     <%= f.label :name, "名前" %>
     <%= f.text_field :name %>
   </div>
+    <div class="field">
+    <%= f.label :n_member, "人数" %>
+    <%= f.text_field :n_member %>
+  </div>
+    <div class="field">
+    <%= f.label :appeal, "アピール文" %>
+    <%= f.text_field :appeal %>
+  </div>
+    <div class="field">
+    <%= f.label :detail, "詳細" %>
+    <%= f.text_field :detail %>
+  </div>
+    <div class="field">
+    <%= f.label :campus, "キャンパス" %>
+    <%= f.text_field :campus %>
+  </div>
+    <div class="field">
+        <%= f.label "公認可否" %> <br />
+        <%= f.check_box :official %> <br />
+    </div>
+    <div class="field">
+        <%= f.label "他大学生可否" %> <br />
+        <%= f.check_box :intercollege %> <br />
+    </div>
+   <div class="field">
+  <%= f.label :tag_id %>
+  <%= f.collection_select :tag_id, Tag.all, :id, :name %>
+  </div>
   <div class="actions">
     <%= f.submit "登録する" %>
   </div>
