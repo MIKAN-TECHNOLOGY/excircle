@@ -27,6 +27,7 @@ class CirclesController < ApplicationController
 
   def create
    @circles= Circle.create(create_params)
+   Circle.find(@circles.id).update(user_id: current_user.id)
   end
 
   def edit
@@ -44,8 +45,7 @@ class CirclesController < ApplicationController
 
   private
   def create_params
-
-    params.require(:circle).permit(:name,:n_member,:appeal,:detail,:campus,:official,:intercollege,:user_id,:tag_id)
+    params.require(:circle).permit(:name,:n_member,:appeal,:detail,:campus,:official,:intercollege,:tag_id)
   end
 
   def update_params
