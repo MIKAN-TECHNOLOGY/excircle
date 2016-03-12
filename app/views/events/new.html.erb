@@ -19,35 +19,36 @@
     <![endif]-->
 </head>
 <div>
-  <%= form_for current_user do |f| %>
+  <%= form_for (@event) do |f| %>
     <h3>
-      ユーザー情報を編集する
+      イベント情報を登録する
     </h3>
     <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, :placeholder => 'メールアドレスを入力' %>
+      <%= f.label :"イベント名" %><br />
+      <%= f.email_field :name %>
     </div>
     <div class="field">
-      <%= f.label :password %>
-      <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
-      <% end %><br />
-      <%= f.password_field :password, autocomplete: "off", :placeholder => 'パスワードを入力' %>
+      <%= f.label :"日時" %><br />
+      <%= f.text_field :date %>
     </div>
     <div class="field">
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "off", :placeholder => 'パスワードを入力（確認）' %>
+      <%= f.label :"場所" %><br />
+      <%= f.text_field :place %>
     </div>
     <div class="field">
-      <%= f.label :name %><br />
-      <%= f.text_field :name, :placeholder => 'ニックネームを入力（必須）' %>
+      <%= f.label :"費用" %><br />
+      <%= f.text_field :cost %>
     </div>
     <div class="field">
-      <%= f.label :avatar %><br />
-      <%= f.file_field :avatar %>
+      <%= f.label :"内容" %><br />
+      <%= f.text_field :content %>
+    </div>
+    <div class="field">
+      <%= f.label :"連絡先" %><br />
+      <%= f.file_field :contact %>
     </div>
     <div class="actions">
-      <%= f.submit "更新する" %>
+      <%= f.submit "登録する" %>
     </div>
   <% end %>
 </div>

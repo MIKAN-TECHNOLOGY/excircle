@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update, :destroy]
   resources :univs
   resources :circles do
+    resources :events
     collection do
       get 'search'
     end

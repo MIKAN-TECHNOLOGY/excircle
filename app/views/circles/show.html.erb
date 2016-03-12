@@ -63,9 +63,9 @@
                     <% end %>
                 </div>
             </div>
-            
+
             <div class="col-md-9">
-                <% @circles.each do |circle|  %>
+                <% @circles.each do |circle| %>
                     <div class="row carousel-holder">
                         <div class="col-md-8">
                             <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -94,26 +94,26 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                         <% @thisuniv.each do |thisuniv|  %>
-                             <% @user.each do |user|  %>
-                                    <h3>サークル名：<%= circle.name %></h3>
-                                     <h4>大学名：<%= thisuniv.name %></h4>
-                                    <h3>サークル情報</h3>
-                                    <a href="/circles/<%= circle.id %>/edit">サークル情報を変更する</a>
-                                    <ul>
-                                        <li>アピール文</li>
-                                        <p><%= circle.appeal %></p>
-                                        <li>概要</li>
-                                        <p><%= circle.detail %></p>
-                                        <li>ジャンル</li>
-                                        <p><%= circle.tag.name %></p>
-                                        <li>キャンパス</li>
-                                        <p><%= circle.campus %></p>
-                                        <li>公認：<%= circle.official %></li>
-                                        <li>インカレ：<%= circle.intercollege %></li>
-                                        <li>人数：<%= circle.n_member %></li>
-                                        <li>サークル担当者：<%= user.name%></li>
-                                    </ul>
+                        <% @thisuniv.each do |thisuniv| %>
+                            <% @user.each do |user| %>
+                                <h3>サークル名：<%= circle.name %></h3>
+                                <h4>大学名：<%= thisuniv.name %></h4>
+                                <h3>サークル情報</h3>
+                                <a href="/circles/<%= circle.id %>/edit">サークル情報を変更する</a>
+                                <ul>
+                                    <li>アピール文</li>
+                                    <p><%= circle.appeal %></p>
+                                    <li>概要</li>
+                                    <p><%= circle.detail %></p>
+                                    <li>ジャンル</li>
+                                    <p><%= circle.tag.name %></p>
+                                    <li>キャンパス</li>
+                                    <p><%= circle.campus %></p>
+                                    <li>公認：<%= circle.official %></li>
+                                    <li>インカレ：<%= circle.intercollege %></li>
+                                    <li>人数：<%= circle.n_member %></li>
+                                    <li>サークル担当者：<%= user.name%></li>
+                                </ul>
                             <% end %>
                         <% end %>
                         </div>
@@ -128,7 +128,7 @@
                             <div class="thumbnail">
                                 <img src="http://placehold.it/320x150" alt="">
                                 <div class="caption">
-                                 <h4>イベント名：<%= event.name %></h4>
+                                <h4>イベント名：<%= event.name %></h4>
                                 <ul>
                                     <li>日時：<%= event.date %></li>
                                     <li>場所：<%= event.place %></li>
@@ -136,11 +136,12 @@
                                     <li>内容：<%= event.content %></li>
                                     <li>連絡先：<%= event.contact %></li>
                                 </ul>
+                                <%= link_to "イベント情報を変更する", edit_circle_event %>
                             </div>
                         </div>
                     <%end%>
                 <%else %>
-                <p>このサークルに登録されているイベントはありません。</p>
+                    <p>このサークルに登録されているイベントはありません。</p>
                 <%end%>
 
 
