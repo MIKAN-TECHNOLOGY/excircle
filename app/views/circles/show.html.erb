@@ -136,7 +136,7 @@
                                     <li>内容：<%= event.content %></li>
                                     <li>連絡先：<%= event.contact %></li>
                                 </ul>
-                                <%= link_to "イベント情報を変更する", edit_circle_event %>
+                                <a href="/circles/<%= params[:id] %>/events/<%= event.id %>/edit">イベント情報を変更する</a>
                             </div>
                         </div>
                     <%end%>
