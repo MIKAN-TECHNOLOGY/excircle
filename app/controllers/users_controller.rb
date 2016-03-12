@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+     @circles =Circle.find(:id)
   end
 
   def update
