@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   before_action :move_to_show, except: :show
 
   def show
-    @event = Event.find(params[:id])
+    @event = Event.find(params[:circle_id])
   end
 
   def new
@@ -12,7 +12,8 @@ class EventsController < ApplicationController
   end
 
   def create
-    Event.create(update_params)
+   @event  =Event.create(create_params)
+  Event.find(@event.id).update(circle_id: params[:circle_id])
   end
 
   def edit
@@ -25,8 +26,11 @@ class EventsController < ApplicationController
   end
 
   private
+  def create_params
+    params.require(:event).permit(:name,:date,:place,:cost,:content,:contact,:circle_id)
+  end
   def update_params
-    params.require(:event).permit(:name,:date,:place,:cost,:content,:contact)
+    params.require(:event).permit(:name,:date,:place,:cost,:content,:contact,:circle_id)
   end
 
   def move_to_show
