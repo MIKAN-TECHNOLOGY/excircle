@@ -19,13 +19,13 @@
     <![endif]-->
 </head>
 <div>
-  <%= form_for (@event) do |f| %>
+  <%= form_for ([@circle, @event]) do |f| %>
     <h3>
       イベント情報を編集する
     </h3>
     <div class="field">
       <%= f.label :"イベント名" %><br />
-      <%= f.email_field :name %>
+      <%= f.text_field :name %>
     </div>
     <div class="field">
       <%= f.label :"日時" %><br />
@@ -45,7 +45,7 @@
     </div>
     <div class="field">
       <%= f.label :"連絡先" %><br />
-      <%= f.file_field :contact %>
+      <%= f.text_field :contact %>
     </div>
     <div class="actions">
       <%= f.submit "更新する" %>

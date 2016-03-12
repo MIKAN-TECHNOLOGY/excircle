@@ -7,6 +7,7 @@ class EventsController < ApplicationController
   end
 
   def new
+    @circle = Circle.find(params[:circle_id])
     @event = Event.new
   end
 
@@ -15,6 +16,7 @@ class EventsController < ApplicationController
   end
 
   def edit
+    @circle = Circle.find(params[:id])
     @event = Event.find(params[:id])
   end
 
