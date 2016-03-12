@@ -63,28 +63,36 @@
 
             <div class="col-md-9">
                 <div class="row">
-                    <% @circles.each do |circle| %>
-                        <div class="col-sm-4 col-lg-4 col-md-4">
-                            <div class="thumbnail">
-                                 <img src="http://placehold.it/320x150" alt="">
-                                 <div class="caption">
-                                    <h4 class="pull-right"></h4>
-                                    <h4><a href="/circles/<%=circle.id%>"><%= circle.name %></a>
-                                    </h4>
-                                    <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                </div>
-                                <div class="ratings">
-                                    <p class="pull-right">12 reviews</p>
-                                    <p>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star-empty"></span>
-                                    </p>
+                    <% if @circles == nil then %>
+                        <p>検索語句と一致するサークルは見つかりませんでした。他の検索語句をお試しください。</p>
+                    <%else%>
+                        <% @circles.each do |circle| %>
+                            <div class="col-sm-4 col-lg-4 col-md-4">
+                                <div class="thumbnail">
+                                     <img src="http://placehold.it/320x150" alt="">
+                                     <div class="caption">
+                                        <h4 class="pull-right"></h4>
+                                        <h4><a href="/circles/<%=circle.id%>"><%= circle.name %></a>
+                                        <ul>
+                                            <% @user_id = Circle.find(circle.id).user_id  %>
+                                            <% @univ_id = User.find(@user_id).univ_id %>
+                                            <% @thisuniv = Univ.where(id: @univ_id) %>
+                                            <% @thisuniv.each do |thisuniv| %>
+                                            <li>大学名：<%= thisuniv.name %></li>
+                                            <%end%>
+                                            <li>キャンパス</li>
+                                            <p><%= circle.campus %></p>
+                                            <li>ジャンル</li>
+                                            <p><%= circle.tag.name %></p>
+                                            <li>アピール文</li>
+                                            <p><%= circle.appeal %></p>
+                                            <li>インカレ：<%= circle.intercollege %></li>
+                                            <li>公認：<%= circle.official %></li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        <%end%>
                     <%end%>
                 </div>
             </div>
