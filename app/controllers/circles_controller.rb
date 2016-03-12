@@ -28,7 +28,6 @@ class CirclesController < ApplicationController
   end
 
   def destroy
-    Circle.find(params[:id]).events.destroy_all
     Circle.find(params[:id]).destroy
   end
 
