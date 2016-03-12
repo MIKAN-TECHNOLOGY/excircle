@@ -31,11 +31,11 @@ class EventsController < ApplicationController
 
   private
   def create_params
-    params.require(:event).permit(:name,:date,:place,:cost,:content,:contact,:circle_id)
+    params.require(:event).permit(:name,:date,:place,:cost,:content,:contact,:circle_id,:avatar)
   end
 
   def update_params
-    params.require(:event).permit(:name,:date,:place,:cost,:content,:contact,:circle_id)
+    params.require(:event).permit(:name,:date,:place,:cost,:content,:contact,:circle_id,:avatar)
   end
 
   def move_to_show

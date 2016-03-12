@@ -47,8 +47,40 @@
       <%= f.label :"連絡先" %><br />
       <%= f.text_field :contact %>
     </div>
+    <div class="field">
+      <%= f.label :"イベントの写真" %><br />
+      <%= f.file_field :avatar %>
+    </div>
     <div class="actions">
       <%= f.submit "登録する" %>
     </div>
   <% end %>
 </div>
+
+    <!-- /.container -->
+
+    <div class="container">
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Excircle 2016</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

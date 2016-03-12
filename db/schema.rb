@@ -11,43 +11,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160311055815) do
+ActiveRecord::Schema.define(version: 20160312134139) do
 
   create_table "circles", force: :cascade do |t|
-    t.string   "name",         limit: 255
-    t.string   "appeal",       limit: 255
-    t.string   "detail",       limit: 255
-    t.string   "campus",       limit: 255
-    t.binary   "official",     limit: 65535
-    t.binary   "intercollege", limit: 65535
-    t.integer  "tag_id",       limit: 4
-    t.integer  "user_id",      limit: 4
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.integer  "n_member",     limit: 4
+    t.string   "name",                limit: 255
+    t.string   "appeal",              limit: 255
+    t.string   "detail",              limit: 255
+    t.string   "campus",              limit: 255
+    t.binary   "official",            limit: 65535
+    t.binary   "intercollege",        limit: 65535
+    t.integer  "tag_id",              limit: 4
+    t.integer  "user_id",             limit: 4
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.integer  "n_member",            limit: 4
+    t.string   "avatar_file_name",    limit: 255
+    t.string   "avatar_content_type", limit: 255
+    t.integer  "avatar_file_size",    limit: 4
+    t.datetime "avatar_updated_at"
   end
 
   create_table "events", force: :cascade do |t|
     t.datetime "date"
-    t.text     "place",      limit: 65535
-    t.integer  "cost",       limit: 4
-    t.text     "content",    limit: 65535
-    t.integer  "circle_id",  limit: 4
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-    t.string   "name",       limit: 255
-    t.string   "contact",    limit: 255
-  end
-
-  create_table "roles", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-  end
-
-  create_table "roles_users", id: false, force: :cascade do |t|
-    t.integer "user_id", limit: 4, null: false
-    t.integer "role_id", limit: 4, null: false
+    t.text     "place",               limit: 65535
+    t.integer  "cost",                limit: 4
+    t.text     "content",             limit: 65535
+    t.integer  "circle_id",           limit: 4
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.string   "name",                limit: 255
+    t.string   "contact",             limit: 255
+    t.string   "avatar_file_name",    limit: 255
+    t.string   "avatar_content_type", limit: 255
+    t.integer  "avatar_file_size",    limit: 4
+    t.datetime "avatar_updated_at"
   end
 
   create_table "tags", force: :cascade do |t|
@@ -77,12 +74,11 @@ ActiveRecord::Schema.define(version: 20160311055815) do
     t.datetime "updated_at",                                        null: false
     t.string   "name",                   limit: 255
     t.integer  "univ_id",                limit: 4
-    t.string   "user",                   limit: 255
-    t.binary   "admin",                  limit: 65535
     t.string   "avatar_file_name",       limit: 255
     t.string   "avatar_content_type",    limit: 255
     t.integer  "avatar_file_size",       limit: 4
     t.datetime "avatar_updated_at"
+    t.binary   "admin",                  limit: 65535
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
