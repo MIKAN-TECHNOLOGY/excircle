@@ -97,7 +97,9 @@
             
                 <div class="row">
 
-                    <%unless @events == nil then %>
+                    <%if @events == nil then %>
+                        <p>このサークルに登録されているイベントはありません。</p>
+                    <%else %>
                         <% @events.each do |event|  %>
                             <div class="col-sm-4 col-lg-4 col-md-4">
                                 <div class="thumbnail">
@@ -116,8 +118,6 @@
                                 </div>
                             </div>
                         <%end%>
-                    <%else %>
-                        <p>このサークルに登録されているイベントはありません。</p>
                     <%end%>
                 </div>
             </div>
