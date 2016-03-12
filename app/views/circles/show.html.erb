@@ -74,8 +74,10 @@
                                 <h3>サークル名：<%= circle.name %></h3>
                                 <h4>大学名：<%= thisuniv.name %></h4>
                                 <h3>サークル情報</h3>
-                                <a href="/circles/<%= circle.id %>/edit">サークル情報を変更する</a></br>
-                                <a href="/circles/<%= circle.id %>" data-method="delete" data-confirm="本当に削除してよろしいですか？">サークル情報を削除する</a>
+                                <% if user_signed_in? && current_user.id == circle.user_id %>
+                                    <a href="/circles/<%= circle.id %>/edit">サークル情報を変更する</a></br>
+                                    <a href="/circles/<%= circle.id %>" data-method="delete" data-confirm="本当に削除してよろしいですか？">サークル情報を削除する</a>
+                                <% end %>
                                 <ul>
                                     <li>アピール文</li>
                                     <p><%= circle.appeal %></p>
