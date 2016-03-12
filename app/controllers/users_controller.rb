@@ -13,6 +13,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    current_user.circles.events.destroy_all
     current_user.circles.destroy_all
     current_user.destroy
   end
