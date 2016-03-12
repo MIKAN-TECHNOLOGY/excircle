@@ -39,7 +39,8 @@
                 <h1 class="page-header"><%= current_user.univ.name %>、<%= current_user.name %>さんのマイページ</h1>
             </div>
             <a href="/users/<%= current_user.id %>/edit">ユーザー情報を変更する</a></br>
-            <a href="/users/<%= current_user.id %>" data-method="delete" data-confirm="本当に削除してよろしいですか？">ユーザー情報を削除する</a>
+            <a href="/users/<%= current_user.id %>" data-method="delete" data-confirm="本当に削除してよろしいですか？">ユーザー情報を削除する</a></br>
+            <a href="/circles/new">サークル情報を登録する</a></br>
         </div>
         <!-- /.row -->
 
@@ -53,7 +54,6 @@
                 <div class="col-md-4">
                     <h3>サークル名：<%= circle.name %></h3>
                     <h3>サークル情報</h3>
-                    <a href="/circles/new">サークル情報を登録する</a></br>
                     <a href="/circles/<%= circle.id %>/edit">サークル情報を変更する</a></br>
                     <a href="/circles/<%= circle.id %>" data-method="delete" data-confirm="本当に削除してよろしいですか？">サークル情報を削除する</a>
                     <ul>
@@ -78,6 +78,7 @@
                         
                             <% @events.each do |event| %>
                                 <% if circle.id == event.circle_id then %>
+<<<<<<< HEAD
                                 <div class="col-sm-4 col-xs-4 col-lg-4">
                                     <div class="thumbnail">
                                         <img src="http://placehold.it/320x150" alt="">
@@ -95,6 +96,21 @@
                             <% end %>
                         <% end %>
                         
+=======
+                                    <h4>イベント名：<%= event.name %></h4>
+                                    <a href="/circles/<%= circle.id %>/events/<%= event.id %>/edit">イベント情報を変更する</a></br>
+                                    <a href="/circles/<%= circle.id %>/events/<%= event.id %>" data-method="delete" data-confirm="本当に削除してよろしいですか？">イベント情報を削除する</a>
+                                    <ul>
+                                        <li>日時：<%= event.date %></li>
+                                        <li>場所：<%= event.place %></li>
+                                        <li>費用：<%= event.cost %></li>
+                                        <li>内容：<%= event.content %></li>
+                                        <li>連絡先：<%= event.contact %></li>
+                                    </ul>
+                              <% end %>
+                          <% end %>
+                        </div>
+>>>>>>> dbbcccd977a079a70e25054d31e9bf327bbce1d0
                     </div>
                 </div>
                 <!-- /.row -->

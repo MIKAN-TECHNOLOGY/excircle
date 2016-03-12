@@ -12,12 +12,12 @@ class EventsController < ApplicationController
   end
 
   def create
-   @event  =Event.create(create_params)
-  Event.find(@event.id).update(circle_id: params[:circle_id])
+    @event = Event.create(create_params)
+    Event.find(@event.id).update(circle_id: params[:circle_id])
   end
 
   def edit
-    @circle = Circle.find(params[:id])
+    @circle = Circle.find(params[:circle_id])
     @event = Event.find(params[:id])
   end
 
@@ -25,10 +25,15 @@ class EventsController < ApplicationController
     Event.find(params[:id]).update(update_params)
   end
 
+  def destroy
+    Event.find(params[:id]).destroy
+  end
+
   private
   def create_params
     params.require(:event).permit(:name,:date,:place,:cost,:content,:contact,:circle_id)
   end
+
   def update_params
     params.require(:event).permit(:name,:date,:place,:cost,:content,:contact,:circle_id)
   end
