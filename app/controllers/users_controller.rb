@@ -13,11 +13,11 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @circles= current_user.circles
-     @circles.each do |circle|
-    circle.events.destroy_all
-    circle.destroy_all
-  end
+    @circles = current_user.circles
+      @circles.each do |circle|
+        circle.events.destroy_all
+        circle.destroy
+      end
     current_user.destroy
   end
 
