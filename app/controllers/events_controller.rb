@@ -25,6 +25,10 @@ class EventsController < ApplicationController
     Event.find(params[:id]).update(update_params)
   end
 
+  def destroy
+    Event.find(params[:id]).destroy
+  end
+
   private
   def create_params
     params.require(:event).permit(:name,:date,:place,:cost,:content,:contact,:circle_id)
