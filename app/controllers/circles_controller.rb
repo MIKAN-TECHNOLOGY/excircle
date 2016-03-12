@@ -20,6 +20,11 @@ class CirclesController < ApplicationController
   end
 
   def edit
+    @circles = Circle.find(params[:id])
+  end
+
+  def update
+    Circle.find(params[:id]).update(update_params)
   end
 
   def destroy
@@ -27,6 +32,10 @@ class CirclesController < ApplicationController
   end
 
   private
+  def update_params
+    params.require(:circle).permit(:name)
+  end
+
   def move_to_show
     redirect_to action: :show unless user_signed_in? && current_user.id == Circle.find(params[:id]).user_id
   end
