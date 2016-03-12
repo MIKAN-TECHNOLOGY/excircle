@@ -48,13 +48,41 @@
     <%= f.collection_select :univ_id, Univ.all, :id, :name %>
   </div>
   <div class="field">
-    <%= f.label :"アバター" %><br />
+    <%= f.label :"プロフィール写真" %><br />
     <%= f.file_field :avatar %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "登録する" %>
   </div>
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+    <!-- /.container -->
+
+    <div class="container">
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Excircle 2016</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
