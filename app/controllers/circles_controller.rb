@@ -6,10 +6,10 @@ class CirclesController < ApplicationController
   def show
     @circles = Circle.where(id: params[:id])
     @events = Event.where(circle_id: @circles)
-    @user_id=Circle.where(id: params[:id]).select("user_id")
-    @user=User.where(id: @user_id).select("name")
-    @univ_id=User.where(id: @user_id).select("univ_id")
-    @thisuniv=Univ.where(id: @univ_id)
+    @user_id = Circle.where(id: params[:id]).select("user_id")
+    @user = User.where(id: @user_id).select("name")
+    @univ_id = User.where(id: @user_id).select("univ_id")
+    @thisuniv = Univ.where(id: @univ_id)
     @univs = Univ.all
     @tags = Tag.all
   end
@@ -22,12 +22,11 @@ class CirclesController < ApplicationController
 
   def new
     @circles = Circle.new
-
   end
 
   def create
-   @circles= Circle.create(create_params)
-   Circle.find(@circles.id).update(user_id: current_user.id)
+    @circles = Circle.create(create_params)
+    Circle.find(@circles.id).update(user_id: current_user.id)
   end
 
   def edit

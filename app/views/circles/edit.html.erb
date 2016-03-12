@@ -53,17 +53,17 @@
     <%= f.label :campus, "キャンパス" %>
     <%= f.text_field :campus %>
   </div>
-    <div class="field">
-        <%= f.label "公認可否" %> <br />
-        <%= f.check_box :official %> <br />
-    </div>
-    <div class="field">
-        <%= f.label "他大学生可否" %> <br />
-        <%= f.check_box :intercollege %> <br />
-    </div>
-   <div class="field">
-  <%= f.label :tag_id %>
-  <%= f.collection_select :tag_id, Tag.all, :id, :name %>
+  <div class="field">
+    <%= f.label "公認可否" %> <br />
+    <%= f.check_box :official %> <br />
+  </div>
+  <div class="field">
+    <%= f.label "他大学生可否" %> <br />
+    <%= f.check_box :intercollege %> <br />
+  </div>
+  <div class="field">
+    <%= f.label :tag_id %>
+    <%= f.collection_select :tag_id, Tag.all, :id, :name %>
   </div>
   <div class="actions">
     <%= f.submit "登録する" %>
