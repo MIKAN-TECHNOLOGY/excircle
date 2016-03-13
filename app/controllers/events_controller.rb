@@ -17,7 +17,6 @@ class EventsController < ApplicationController
   def create
     @event = Event.create(create_params)
     @time =@event.date
-    @time = @time -32400
     Event.find(@event.id).update(date: @time)
     Event.find(@event.id).update(circle_id: params[:circle_id])
   if @event.save
@@ -35,7 +34,6 @@ class EventsController < ApplicationController
   def update
    @event= Event.find(params[:id]).update(update_params)
     @time =@event.date
-    @time = @time -32400
     Event.find(@event.id).update(date: @time)
   end
 
