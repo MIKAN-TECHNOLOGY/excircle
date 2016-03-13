@@ -14,6 +14,11 @@ class EventsController < ApplicationController
   def create
     @event = Event.create(create_params)
     Event.find(@event.id).update(circle_id: params[:circle_id])
+  if @event.save
+  else
+    # ValidationエラーなどでDBに保存できない場合 new.html.erb を再表示
+    render 'new'
+  end
   end
 
   def edit
@@ -22,7 +27,12 @@ class EventsController < ApplicationController
   end
 
   def update
-    Event.find(params[:id]).update(update_params)
+   @event= Event.find(params[:id]).update(update_params)
+  if @event.save
+  else
+    # ValidationエラーなどでDBに保存できない場合 edit.html.erb を再表示
+    render 'edit'
+  end
   end
 
   def destroy

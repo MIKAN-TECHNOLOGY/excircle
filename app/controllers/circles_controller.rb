@@ -28,6 +28,11 @@ class CirclesController < ApplicationController
   def create
     @circles = Circle.create(create_params)
     Circle.find(@circles.id).update(user_id: current_user.id)
+      if @circles.save
+  else
+    # ValidationエラーなどでDBに保存できない場合 new.html.erb を再表示
+    render 'new'
+  end
   end
 
   def edit
@@ -36,6 +41,12 @@ class CirclesController < ApplicationController
 
   def update
     Circle.find(params[:id]).update(update_params)
+    
+  if @circles.save
+  else
+    # ValidationエラーなどでDBに保存できない場合 edit.html.erb を再表示
+    render 'edit'
+  end
   end
 
   def destroy
