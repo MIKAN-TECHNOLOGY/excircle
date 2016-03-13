@@ -13,6 +13,10 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.create(create_params)
+    @localtime = Time.zone.local(1,1,1,1,1,0,"+09:00")
+    @localtime = params[:date].to_i
+
+    Event.find(@event.id).update(date: @localtime)
     Event.find(@event.id).update(circle_id: params[:circle_id])
   if @event.save
   else
@@ -28,11 +32,6 @@ class EventsController < ApplicationController
 
   def update
    @event= Event.find(params[:id]).update(update_params)
-  if @event.save
-  else
-    # ValidationエラーなどでDBに保存できない場合 edit.html.erb を再表示
-    render 'edit'
-  end
   end
 
   def destroy

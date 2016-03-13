@@ -41,11 +41,7 @@ class CirclesController < ApplicationController
 
   def update
     Circle.find(params[:id]).update(update_params)
-  if @circles.save
-  else
-    # ValidationエラーなどでDBに保存できない場合 edit.html.erb を再表示
-    render 'edit'
-  end
+
   end
 
   def destroy
