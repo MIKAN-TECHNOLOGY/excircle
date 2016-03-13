@@ -5,7 +5,7 @@ class CirclesController < ApplicationController
 
   def show
     @circles = Circle.where(id: params[:id])
-    @events = Event.where(circle_id: @circles)
+    @events = Event.where(circle_id: @circles).page(params[:page]).per(6)
     @user_id = Circle.where(id: params[:id]).select("user_id")
     @user = User.where(id: @user_id).select("name")
     @univ_id = User.where(id: @user_id).select("univ_id")
@@ -15,8 +15,7 @@ class CirclesController < ApplicationController
   end
 
   def search
-    @circles = Circle.where('name LIKE(?)', "%#{params[:search]}%")
-
+    @circles = Circle.where('name LIKE(?)', "%#{params[:search]}%").page(params[:page]).per(12)
     @univs = Univ.all
     @tags = Tag.all
   end
@@ -28,11 +27,11 @@ class CirclesController < ApplicationController
   def create
     @circles = Circle.create(create_params)
     Circle.find(@circles.id).update(user_id: current_user.id)
-      if @circles.save
-  else
-    # ValidationエラーなどでDBに保存できない場合 new.html.erb を再表示
-    render 'new'
-  end
+    if @circles.save
+    else
+      # ValidationエラーなどでDBに保存できない場合 new.html.erb を再表示
+      render 'new'
+    end
   end
 
   def edit
