@@ -50,17 +50,16 @@
             <p class="lead">大学名検索</p>
             <div class="list-group">
                 <% @univs.each do |univ| %>
-                    <a href="/univs/<%= univ.id %>"><%= univ.name %></a>
+                    <a href="/univs/<%= univ.id %>"><%= univ.name %></a></br>
                 <% end %>
             </div>
             <p class="lead">ジャンル検索</p>
             <div class="list-group">
                 <% @tags.each do |tag| %>
-                    <a href="/tags/<%= tag.id %>"><%= tag.name %></a>
+                    <a href="/tags/<%= tag.id %>"><%= tag.name %></a></br>
                 <% end %>
             </div>
         </div>
-
             <div class="col-md-9">
                 <div class="row">
                     <% if @circles.exists? then %>
@@ -91,6 +90,7 @@
                                 </div>
                             </div>
                         <%end%>
+                        <%= paginate(@circles) %>
                     <%else%>
                          <div class="col-md-12">
                             <p class="lead">検索語句と一致するサークルは見つかりませんでした。</p>
@@ -99,6 +99,7 @@
                     <%end%>
                 </div>
             </div>
+
         </div>
     </div>
     <!-- /.container -->

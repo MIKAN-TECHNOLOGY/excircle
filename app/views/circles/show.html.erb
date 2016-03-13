@@ -52,13 +52,13 @@
                 <p class="lead">大学名検索</p>
                 <div class="list-group">
                     <% @univs.each do |univ| %>
-                        <a href="/univs/<%= univ.id %>"><%= univ.name %></a>
+                    <a href="/univs/<%= univ.id %>"><%= univ.name %></a></br>
                     <% end %>
                 </div>
                 <p class="lead">ジャンル検索</p>
                 <div class="list-group">
                     <% @tags.each do |tag| %>
-                        <a href="/tags/<%= tag.id %>"><%= tag.name %></a>
+                        <a href="/tags/<%= tag.id %>"><%= tag.name %></a></br>
                     <% end %>
                 </div>
             </div>
@@ -120,6 +120,7 @@
                                 </div>
                             </div>
                         <%end%>
+                        <%= paginate(@events) %>
                     <%end%>
                 </div>
             </div>
