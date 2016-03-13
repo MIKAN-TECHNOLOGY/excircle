@@ -6,6 +6,9 @@ class EventsController < ApplicationController
     @event = Event.find(params[:circle_id])
   end
 
+ def index
+  end
+
   def new
     @circle = Circle.find(params[:circle_id])
     @event = Event.new
@@ -13,10 +16,8 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.create(create_params)
-    @localtime = Time.zone.local(1,1,1,1,1,0,"+09:00")
-    @localtime = params[:date].to_i
-
-    Event.find(@event.id).update(date: @localtime)
+    @time =@event.date
+    Event.find(@event.id).update(date: @time)
     Event.find(@event.id).update(circle_id: params[:circle_id])
   if @event.save
   else
@@ -32,6 +33,8 @@ class EventsController < ApplicationController
 
   def update
    @event= Event.find(params[:id]).update(update_params)
+    @time =@event.date
+    Event.find(@event.id).update(date: @time)
   end
 
   def destroy
