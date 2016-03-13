@@ -30,42 +30,42 @@
 <div class="container">
 
 <div class="row">
-    <%= form_for (@circles) do |f| %>
+    <%= form_for (@circle) do |f| %>
         <div class="field">
-            <%= f.label :name, "サークル名" %>
+            <%= f.label :name, "サークル名" %></br>
             <%= f.text_field :name %>
         </div>
         <div class="field">
-            <%= f.label :n_member, "人数" %>
+            <%= f.label :n_member, "人数" %></br>
             <%= f.text_field :n_member %>
         </div>
         <div class="field">
-            <%= f.label :appeal, "アピール文" %>
+            <%= f.label :appeal, "アピール文" %></br>
             <%= f.text_field :appeal %>
         </div>
         <div class="field">
-            <%= f.label :detail, "詳細" %>
+            <%= f.label :detail, "詳細" %></br>
             <%= f.text_field :detail %>
         </div>
         <div class="field">
-            <%= f.label :campus, "キャンパス" %>
+            <%= f.label :campus, "キャンパス" %></br>
             <%= f.text_field :campus %>
         </div>
         <div class="field">
-            <%= f.label "公認可否" %> <br />
-            <%= f.check_box :official %> <br />
+            <%= f.label "公認可否" %></br>
+            <%= f.check_box :official %>
         </div>
         <div class="field">
-            <%= f.label "他大学生可否" %> <br />
-            <%= f.check_box :intercollege %> <br />
+            <%= f.label "他大学生可否" %></br>
+            <%= f.check_box :intercollege %>
         </div>
         <div class="field">
-            <%= f.label :tag_id %>
-            <%= f.collection_select :tag_id, Tag.all, :id, :name %>
+            <%= f.label :"カテゴリー" %></br>
+            <%= f.collection_select :tag_id, Tag.all, :id, :name %></br>
         </div>
         <div class="field">
-            <%= f.label :"サークルの写真" %><br />
-            <%= f.file_field :avatar %>
+            <%= f.label :"サークルの写真" %>
+            <%= f.file_field :avatar %></br>
         </div>
         <div class="actions">
             <%= f.submit "登録する" %>

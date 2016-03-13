@@ -6,4 +6,6 @@ class Circle < ActiveRecord::Base
   belongs_to :user
   belongs_to :tag
   has_many :events
+  has_many :taggings
+  has_many :utags, through: :taggings
 end

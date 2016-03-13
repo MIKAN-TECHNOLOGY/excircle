@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160312134139) do
+ActiveRecord::Schema.define(version: 20160313125555) do
 
   create_table "circles", force: :cascade do |t|
     t.string   "name",                limit: 255
@@ -47,16 +47,15 @@ ActiveRecord::Schema.define(version: 20160312134139) do
     t.datetime "avatar_updated_at"
   end
 
-  create_table "roles", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+  create_table "taggings", force: :cascade do |t|
+    t.integer  "utag_id",    limit: 4
+    t.integer  "circle_id",  limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
-  create_table "roles_users", id: false, force: :cascade do |t|
-    t.integer "user_id", limit: 4, null: false
-    t.integer "role_id", limit: 4, null: false
-  end
+  add_index "taggings", ["circle_id"], name: "index_taggings_on_circle_id", using: :btree
+  add_index "taggings", ["utag_id"], name: "index_taggings_on_utag_id", using: :btree
 
   create_table "tags", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -85,15 +84,22 @@ ActiveRecord::Schema.define(version: 20160312134139) do
     t.datetime "updated_at",                                        null: false
     t.string   "name",                   limit: 255
     t.integer  "univ_id",                limit: 4
-    t.string   "user",                   limit: 255
-    t.binary   "admin",                  limit: 65535
     t.string   "avatar_file_name",       limit: 255
     t.string   "avatar_content_type",    limit: 255
     t.integer  "avatar_file_size",       limit: 4
     t.datetime "avatar_updated_at"
+    t.binary   "admin",                  limit: 65535
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  create_table "utags", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_foreign_key "taggings", "circles"
+  add_foreign_key "taggings", "utags"
 end

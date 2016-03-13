@@ -21,7 +21,7 @@ class CirclesController < ApplicationController
   end
 
   def new
-    @circles = Circle.new
+    @circle = Circle.new
   end
 
   def create
