@@ -100,6 +100,7 @@
                     </div>
                 <% end %>
 
+            <% if user_signed_in? %>
                 <h2>新着イベント</h2>
                 <% @events.each do |event| %>
                     <div class="col-sm-4 col-lg-4 col-md-4">
@@ -123,6 +124,8 @@
                         </div>
                     </div>
                 <% end %>
+            <% else %>
+            <% end %>
 
                 </div>
 

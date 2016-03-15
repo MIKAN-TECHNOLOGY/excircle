@@ -1,12 +1,12 @@
 class EventsController < ApplicationController
 
-  before_action :move_to_show, except: :show
+  before_action :authenticate_user!
 
   def show
     @event = Event.find(params[:circle_id])
   end
 
- def index
+  def index
   end
 
   def new
@@ -19,11 +19,11 @@ class EventsController < ApplicationController
     @time =@event.date
     Event.find(@event.id).update(date: @time)
     Event.find(@event.id).update(circle_id: params[:circle_id])
-  if @event.save
-  else
-    # ValidationエラーなどでDBに保存できない場合 new.html.erb を再表示
-    render 'new'
-  end
+    if @event.save
+    else
+      # ValidationエラーなどでDBに保存できない場合 new.html.erb を再表示
+      render 'new'
+    end
   end
 
   def edit
@@ -48,9 +48,5 @@ class EventsController < ApplicationController
 
   def update_params
     params.require(:event).permit(:name,:date,:place,:cost,:content,:contact,:circle_id,:avatar)
-  end
-
-  def move_to_show
-    redirect_to action: :show unless user_signed_in?
   end
 end

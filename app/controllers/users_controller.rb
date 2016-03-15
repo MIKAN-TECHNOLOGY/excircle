@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+
+  before_action :authenticate_user!
+
   def show
     @circles = Circle.where(user_id: current_user.id)
     @events = Event.where(circle_id: @circles)
