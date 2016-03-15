@@ -35,9 +35,9 @@
 <!-- 左上の検索バー-->
             <div class="col-md-3">
                 <div class="row">
-                    <p class="lead">サークル名</p>
-                    <% @circles.each do |circle| %>
-                        <p class="lead"> <%= circle.name %></p>
+                    <p class="lead">イベント名</p>
+                    <% @events.each do |event| %>
+                        <p class="lead"> <%= event.name %></p>
                     <% end %>
                     <p class="lead">サークル名検索</p>
                     <form method="GET" action="/circles/search">
@@ -64,61 +64,61 @@
             </div>
 
             <div class="col-md-9">
-                <% @circles.each do |circle| %>
+
+                <% @events.each do |event| %>
                     <div class="col-md-8">
                         <img class="img-responsive" src="http://placehold.it/750x500" alt="">
                     </div>
                     <div class="col-md-4">
-                    <h3><a href="/circles/<%= circle.id %>/edit">サークル名：<%= circle.name %></a></h3>
-                    <h4><a href="/univs/<%= circle.user.univ.id %>/edit">大学名：<%= circle.user.univ.name %></a></h4>
-                        <h3>サークル情報</h3>
-                        <% if user_signed_in? && current_user.id == circle.user_id %>
-                            <a href="/circles/<%= circle.id %>/edit">サークル情報を変更する</a></br>
-                            <a href="/circles/<%= circle.id %>" data-method="delete" data-confirm="本当に削除してよろしいですか？">サークル情報を削除する</a>
-                        <% end %>
+                        <h4>イベント名：<%= event.name %></h4>
                         <ul>
-                            <li>アピール文</li>
-                            <p><%= circle.appeal %></p>
-                            <li>概要</li>
-                            <p><%= circle.detail %></p>
-                            <li>ジャンル</li>
-                            <p><%= circle.tag.name %></p>
-                            <li>キャンパス</li>
-                            <p><%= circle.campus %></p>
-                            <li>公認：<%= circle.official %></li>
-                            <li>インカレ：<%= circle.intercollege %></li>
-                            <li>人数：<%= circle.n_member %></li>
-                            <li>サークル担当者：<%= circle.user.name%></li>
+                            <a href="/circles/<%= event.circle.id %>">サークル名：<%= event.circle.name %></a></br>
+                    <a href="/univs/<%= event.circle.user.univ.id %>/edit">大学名：<%= event.circle.user.univ.name %></a>
+                            <li>日時：<%= event.date%></li>
+                            <li>場所：<%= event.place %></li>
+                            <li>費用：<%= event.cost %></li>
+                            <li>内容：<%= event.content %></li>
+                            <li>連絡先：<%= event.contact %></li>
+                            <li>日時：<%= event.date%></li>
+                            <li>場所：<%= event.place %></li>
+                            <li>費用：<%= event.cost %></li>
+                            <li>内容：<%= event.content %></li>
+                            <li>連絡先：<%= event.contact %></li>
+                            <li>場所：<%= event.place %></li>
+                            <li>費用：<%= event.cost %></li>
+                            <li>内容：<%= event.content %></li>
+                            <li>連絡先：<%= event.contact %></li>
+                            <li>場所：<%= event.place %></li>
+                            <li>費用：<%= event.cost %></li>
+                            <li>内容：<%= event.content %></li>
+                            <li>連絡先：<%= event.contact %></li>
                         </ul>
+                        <a href="/circles/<%= params[:circle_id] %>/events/<%= event.id %>/edit">イベント情報を変更する</a>
                     </div>
                 <% end %>
-
                 <div class="row">
+                <p class="lead"> 同一サークルのイベント</p>
 
-                    <%if @events == nil then %>
-                        <p class="lead">このサークルに登録されているイベントはありません。</p>
-                    <%else %>
-                        <% @events.each do |event|  %>
-                            <div class="col-sm-4 col-lg-4 col-md-4">
-                                <div class="thumbnail">
-                                    <img src="http://placehold.it/320x150" alt="">
-                                    <div class="caption">
-                                    <h4><a href="/circles/<%= event.circle.id %>/events/<%=event.id%>">イベント名：<%= event.name %></a></h4>
-                                        <ul>
-                                            <li>日時：<%= event.date%></li>
-                                            <li>場所：<%= event.place %></li>
-                                            <li>費用：<%= event.cost %></li>
-                                            <li>内容：<%= event.content %></li>
-                                            <li>連絡先：<%= event.contact %></li>
-                                        </ul>
-                                        <a href="/circles/<%= params[:id] %>/events/<%= event.id %>/edit">イベント情報を変更する</a>
-                                    </div>
+                    <% @circle_events.each do |event|  %>
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+                            <div class="thumbnail">
+                                <img src="http://placehold.it/320x150" alt="">
+                                <div class="caption">
+                                <h4><a href="/circles/<%= params[:id] %>/events/<%= event.id %>">イベント名：<%= event.name %></a></h4>
+                                    <ul>
+                                        <li>日時：<%= event.date%></li>
+                                        <li>場所：<%= event.place %></li>
+                                        <li>費用：<%= event.cost %></li>
+                                        <li>内容：<%= event.content %></li>
+                                        <li>連絡先：<%= event.contact %></li>
+                                    </ul>
+                                    <a href="/circles/<%= params[:id] %>/events/<%= event.id %>/edit">イベント情報を変更する</a>
                                 </div>
                             </div>
-                        <%end%>
-                        <%= paginate(@events) %>
+                        </div>
                     <%end%>
-                </div>
+                    <%= paginate(@circle_events) %>
+                 </div>
             </div>
         </div>
     </div>

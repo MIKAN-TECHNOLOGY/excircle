@@ -3,7 +3,10 @@ class EventsController < ApplicationController
   before_action :move_to_show, except: :show
 
   def show
-    @event = Event.find(params[:circle_id])
+    @events = Event.where(id: params[:id])
+    @circle_events = Event.where(circle_id: params[:circle_id]).page(params[:page]).per(6)
+    @tags=Tag.all
+    @univs=Univ.all
   end
 
  def index

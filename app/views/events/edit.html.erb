@@ -28,8 +28,8 @@
       <%= f.text_field :name %>
     </div>
     <div class="field">
-      <%= f.label :"日時" %><br />
-      <%= f.text_field :date %>
+      <%= f.label :"開始日時" %><br />
+      <%= f.datetime_select :date, :use_month_numbers => true %>
     </div>
     <div class="field">
       <%= f.label :"場所" %><br />
