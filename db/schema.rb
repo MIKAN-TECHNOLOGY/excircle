@@ -47,6 +47,17 @@ ActiveRecord::Schema.define(version: 20160314153131) do
     t.datetime "avatar_updated_at"
   end
 
+  create_table "roles", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "roles_users", id: false, force: :cascade do |t|
+    t.integer "user_id", limit: 4, null: false
+    t.integer "role_id", limit: 4, null: false
+  end
+
   create_table "taggings", force: :cascade do |t|
     t.integer  "utag_id",    limit: 4
     t.integer  "circle_id",  limit: 4
@@ -84,15 +95,20 @@ ActiveRecord::Schema.define(version: 20160314153131) do
     t.datetime "updated_at",                                        null: false
     t.string   "name",                   limit: 255
     t.integer  "univ_id",                limit: 4
+    t.string   "user",                   limit: 255
+    t.binary   "admin",                  limit: 65535
     t.string   "avatar_file_name",       limit: 255
     t.string   "avatar_content_type",    limit: 255
     t.integer  "avatar_file_size",       limit: 4
     t.datetime "avatar_updated_at"
+<<<<<<< HEAD
     t.binary   "admin",                  limit: 65535
     t.string   "confirmation_token",     limit: 255
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email",      limit: 255
+=======
+>>>>>>> ecb8b59bfa5931524050ac8fec48e0abcea91ad5
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
