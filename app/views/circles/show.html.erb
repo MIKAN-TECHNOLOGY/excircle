@@ -95,9 +95,8 @@
 
                 <div class="row">
 
-                    <%if @events == nil then %>
-                        <p class="lead">このサークルに登録されているイベントはありません。</p>
-                    <%else %>
+                <% if user_signed_in? %>
+                    <% if @events.exists? then %>
                         <% @events.each do |event|  %>
                             <div class="col-sm-4 col-lg-4 col-md-4">
                                 <div class="thumbnail">
@@ -111,13 +110,16 @@
                                             <li>内容：<%= event.content %></li>
                                             <li>連絡先：<%= event.contact %></li>
                                         </ul>
-                                        <a href="/circles/<%= params[:id] %>/events/<%= event.id %>/edit">イベント情報を変更する</a>
                                     </div>
                                 </div>
                             </div>
                         <%end%>
                         <%= paginate(@events) %>
+                    <% else %>
+                        <p class="lead">このサークルに登録されているイベントはありません。</p>
                     <%end%>
+                <% else %>
+                <% end %>
                 </div>
             </div>
         </div>
